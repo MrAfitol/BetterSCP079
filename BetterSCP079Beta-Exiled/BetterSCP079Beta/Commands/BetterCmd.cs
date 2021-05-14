@@ -26,9 +26,15 @@ namespace BetterSCP079Beta.Commands
 
             if (ply.Role != RoleType.Scp079)
             {
-                response = "You are not a SCP-079! You can not use this command!";
+                response = Plugin.Instance.Config.scp_no079;
                 return false;
 
+            }
+
+            if (arguments.Count != 1)
+            {
+                response = "Commands: \n.079 blackout - generator malfunction \n.079 flash - camera flash \n.079 canceled - Alpha warhead stop";
+                return false;
             }
 
             var args = arguments.Array;
@@ -52,7 +58,7 @@ namespace BetterSCP079Beta.Commands
                             return true;
                         }
 
-                        Generator079.Generators[0].ServerOvercharge(15, false);
+                        Generator079.Generators[0].ServerOvercharge(Plugin.Instance.Config.blackout_timeovercharge, false);
                         response = Plugin.Instance.Config.com_executed;
                         Cassie.Message(Plugin.Instance.Config.blackout_cassie, true, true);
                         return true;
@@ -70,7 +76,7 @@ namespace BetterSCP079Beta.Commands
                         {
                             if (Plugin.Instance.handlers.isCooldown == true)
                             {
-                                response = "You cannot use, you need to cooldown a little";
+                                response = Plugin.Instance.Config.canceled_cooldownmsg;
                                 return true;
                             }
                             if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.canceled_lvl)
@@ -126,7 +132,7 @@ namespace BetterSCP079Beta.Commands
                         return true;
                     }
                 }
-                response = "GGMen";
+                response = "Commands: \n.079 blackout - generator malfunction \n.079 flash - camera flash \n.079 canceled - Alpha warhead stop";
                 return false;
             }
         }

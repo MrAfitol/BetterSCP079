@@ -12,7 +12,7 @@ namespace BetterSCP079Beta
         {
             if (ev.Player.Role == RoleType.Scp079)
             {
-                ev.Player.ShowHint(Plugin.Instance.Config.scp_message);
+                ev.Player.ShowHint(Plugin.Instance.Config.scp_startmsg, Plugin.Instance.Config.scp_timestartmsg);
             }
         }
         public IEnumerator<float> Nuke()

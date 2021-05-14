@@ -26,8 +26,11 @@ namespace BetterSCP079Beta
         [Description("Set the required energy to activate the ability [canceled]")]
         public int canceled_energy { get; set; } = 85;
 
-        [Description("This message will be displayed in the console if 079 needs to cool down.")]
+        [Description("SCP079 cooling time")]
         public float canceled_cooldown { get; set; } = 120f;
+
+        [Description("This message will be displayed in the console if 079 needs to cool down")]
+        public string canceled_cooldownmsg { get; set; } = "You cannot use, you need to cooldown a little";
 
         [Description("This is a cassie that will play after using the [canceled] ability")]
         public string canceled_cassie { get; set; } = "pitch_0.5 .g6.. pitch_0.7 SCP pitch_0.5 0 pitch_0.5 7 pitch_0.5 9 pitch_0.7 jam_030_5 Hack .g4.. Warhead System";
@@ -45,12 +48,18 @@ namespace BetterSCP079Beta
         public string scp_noenergy { get; set; } = "Not enough energy to carry out the command";
 
         [Description("Message displayed by SCP079 when spawning")]
-        public string scp_message { get; set; } = "<b><color=red>You can open the console [~] and type [ .079 help] and you will have a lot of new possibilities</color></b>";
+        public string scp_startmsg { get; set; } = "<b><color=red>You can open the console [~] and type [ .079 help] and you will have a lot of new possibilities</color></b>";
 
         [Description("This message will be displayed in the console if the level is not sufficient to activate the ability")]
         public string scp_insuflvl { get; set; } = "Not sufficient level";
 
-        [Description("This message will be displayed in the console if the ability is successfully used.")]
+        [Description("The message displayed in the console if the person is not SCP079")]
+        public string scp_no079 { get; set; } = "You are not a SCP-079! You can not use this command!";
+
+        [Description("Message time when SCP079 appears")]
+        public int scp_timestartmsg { get; set; } = 10;
+
+        [Description("This message will be displayed in the console if the ability is successfully used")]
         public string com_executed { get; set; } = "Ability successfully used";
     }
 }
