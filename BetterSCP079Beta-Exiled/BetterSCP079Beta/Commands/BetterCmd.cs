@@ -33,7 +33,7 @@ namespace BetterSCP079Beta.Commands
 
             if (arguments.Count != 1)
             {
-                response = "Commands: \n.079 blackout - generator malfunction \n.079 flash - camera flash \n.079 canceled - Alpha warhead stop";
+                response = "Commands: \n.079 blackout - Turns off the lights in the entire complex \n.079 canceled - Cancel detonation alpha warhead \n.079 flash - Сamera flash";
                 return false;
             }
 
@@ -71,7 +71,7 @@ namespace BetterSCP079Beta.Commands
 
                     if (args[1].ToLower().Equals("help"))
                     {
-                        response = "Commands: \n.079 blackout - generator malfunction \n.079 flash - camera flash \n.079 canceled - Alpha warhead stop";
+                        response = "Commands: \n.079 blackout - Turns off the lights in the entire complex \n.079 canceled - Cancel detonation alpha warhead \n.079 flash - Сamera flash";
                         return true;
                     }
 
