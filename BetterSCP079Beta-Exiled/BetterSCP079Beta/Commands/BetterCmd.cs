@@ -43,6 +43,11 @@ namespace BetterSCP079Beta.Commands
                 {
                     if (args[1].ToLower().Equals("blackout"))
                     {
+                        if (Plugin.Instance.Config.blackout_enabled == false)
+                        {
+                            response = Plugin.Instance.Config.scp_abilitydis;
+                            return true;
+                        }
                         if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.blackout_lvl)
                         {
                             response = Plugin.Instance.Config.scp_insuflvl;
@@ -72,6 +77,11 @@ namespace BetterSCP079Beta.Commands
 
                     if (args[1].ToLower().Equals("canceled"))
                     {
+                        if (Plugin.Instance.Config.canceled_enabled == false)
+                        {
+                            response = Plugin.Instance.Config.scp_abilitydis;
+                            return true;
+                        }
                         if (Warhead.CanBeStarted == false)
                         {
                             if (Plugin.Instance.handlers.isCooldown == true)
@@ -106,6 +116,11 @@ namespace BetterSCP079Beta.Commands
 
                     if (args[1].ToLower().Equals("flash"))
                     {
+                        if (Plugin.Instance.Config.flash_enabled == false)
+                        {
+                            response = Plugin.Instance.Config.scp_abilitydis;
+                            return true;
+                        }
                         if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.flash_lvl)
                         {
                             response = Plugin.Instance.Config.scp_insuflvl;
