@@ -7,7 +7,8 @@ namespace BetterSCP079Beta
 {
     public class EventHandlers
     {
-        public bool isCooldown;
+        public bool isCooldownNuck;
+        public bool isCooldownLights;
         internal void PlayerSpawn(SpawningEventArgs ev)
         {
             if (ev.Player.Role == RoleType.Scp079)
@@ -20,11 +21,23 @@ namespace BetterSCP079Beta
             Warhead.IsLocked = false;
             Warhead.Stop();
             Cassie.Message(Plugin.Instance.Config.canceled_cassie);
-            isCooldown = true;
+            isCooldownNuck = true;
 
             yield return Timing.WaitForSeconds(Plugin.Instance.Config.canceled_cooldown);
 
-            isCooldown = false;
+            isCooldownNuck = false;
+        }
+
+        public IEnumerator<float> LightOff()
+        {
+            Generator079.Generators[0].ServerOvercharge(Plugin.Instance.Config.blackout_timeovercharge, false);
+            Cassie.Message(Plugin.Instance.Config.blackout_cassie, true, true);
+
+            isCooldownLights = true;
+
+            yield return Timing.WaitForSeconds(Plugin.Instance.Config.blackout_cooldown);
+
+            isCooldownLights = false;
         }
     }
 }

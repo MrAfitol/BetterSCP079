@@ -20,6 +20,12 @@ namespace BetterSCP079Beta
         [Description("Set how long to turn off the light in the complex")]
         public int blackout_timeovercharge { get; set; } = 15;
 
+        [Description("SCP079 cooling time")]
+        public float blackout_cooldown { get; set; } = 120f;
+
+        [Description("This message will be displayed in the console if 079 needs to cool down")]
+        public string blackout_cooldownmsg { get; set; } = "You cannot use, you need to cooldown a little";
+
         [Description("This is a cassie that will play after using the [blackout] ability")]
         public string blackout_cassie { get; set; } = "pitch_0.6 .g4... pitch_0.7 jam_020_2 Emergency . .g6 Light Off";
 

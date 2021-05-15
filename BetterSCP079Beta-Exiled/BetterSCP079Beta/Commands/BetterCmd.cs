@@ -43,6 +43,11 @@ namespace BetterSCP079Beta.Commands
                 {
                     if (args[1].ToLower().Equals("blackout"))
                     {
+                        if (Plugin.Instance.handlers.isCooldownLights == true)
+                        {
+                            response = Plugin.Instance.Config.canceled_cooldownmsg;
+                            return true;
+                        }
                         if (Plugin.Instance.Config.blackout_enabled == false)
                         {
                             response = Plugin.Instance.Config.scp_abilitydis;
@@ -63,9 +68,8 @@ namespace BetterSCP079Beta.Commands
                             return true;
                         }
 
-                        Generator079.Generators[0].ServerOvercharge(Plugin.Instance.Config.blackout_timeovercharge, false);
+                        Timing.RunCoroutine(Plugin.Instance.handlers.LightOff(), "light");
                         response = Plugin.Instance.Config.com_executed;
-                        Cassie.Message(Plugin.Instance.Config.blackout_cassie, true, true);
                         return true;
                     }
 
@@ -84,7 +88,7 @@ namespace BetterSCP079Beta.Commands
                         }
                         if (Warhead.CanBeStarted == false)
                         {
-                            if (Plugin.Instance.handlers.isCooldown == true)
+                            if (Plugin.Instance.handlers.isCooldownNuck == true)
                             {
                                 response = Plugin.Instance.Config.canceled_cooldownmsg;
                                 return true;
