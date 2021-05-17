@@ -8,7 +8,7 @@ namespace BetterSCP079
         [Description("Indicates whether the plugin is enabled or not")]
         public bool IsEnabled { get; set; } = true;
 
-        [Description("Indicates whether the plugin is enabled or not")]
+        [Description("Indicates whether to activate the use of the ability or not")]
         public bool blackout_enabled { get; set; } = true;
 
         [Description("Set the required level to activate the ability [blackout]")]
@@ -20,7 +20,7 @@ namespace BetterSCP079
         [Description("Set how long to turn off the light in the complex")]
         public int blackout_timeovercharge { get; set; } = 8;
 
-        [Description("SCP079 cooling time")]
+        [Description("SCP079 cooldown time")]
         public float blackout_cooldown { get; set; } = 120f;
 
         [Description("This is a cassie that will play after using the [blackout] ability")]
@@ -32,7 +32,7 @@ namespace BetterSCP079
         [Description("How much to increase the blackout time")]
         public int blackout_timeinc { get; set; } = 2;
 
-        [Description("Indicates whether the plugin is enabled or not")]
+        [Description("Indicates whether to activate the use of the ability or not")]
         public bool canceled_enabled { get; set; } = true;
 
         [Description("Set the required level to activate the ability [canceled]")]
@@ -41,7 +41,7 @@ namespace BetterSCP079
         [Description("Set the required energy to activate the ability [canceled]")]
         public int canceled_energy { get; set; } = 85;
 
-        [Description("SCP079 cooling time")]
+        [Description("SCP079 cooldown time")]
         public float canceled_cooldown { get; set; } = 120f;
 
         [Description("This is a cassie that will play after using the [canceled] ability")]
@@ -59,7 +59,7 @@ namespace BetterSCP079
         [Description("Set the required energy to activate the ability [flash]")]
         public int flash_energy { get; set; } = 25;
 
-        [Description("Indicates whether the plugin is enabled or not")]
+        [Description("Indicates whether to activate the use of the ability or not")]
         public bool activate_enabled { get; set; } = true;
 
         [Description("Set the required level to activate the ability [activate]")]
@@ -68,10 +68,10 @@ namespace BetterSCP079
         [Description("Set the required energy to activate the ability [activate]")]
         public int activate_energy { get; set; } = 150;
 
-        [Description("This message will be displayed in the console if the warhead is activated")]
+        [Description("This message will be displayed in the console if the warhead has already been activated")]
         public string activate_warheadactive { get; set; } = "Alpha warhead already activated";
 
-        [Description("SCP079 cooling time")]
+        [Description("SCP079 cooldown time")]
         public float activate_cooldown { get; set; } = 180f;
 
         [Description("After activating the ability, block the warhead")]
