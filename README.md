@@ -11,3 +11,4 @@ help | List of possible commands | `.079 help`
 blackout | Turns off the lights in the entire complex | `.079 blackout`
 canceled | Cancel detonation alpha warhead | `.079 canceled`
 flash | Сamera flash | `.079 flash`
+activate | Activate detonation alpha warhead | `.079 activate`
