@@ -21,7 +21,7 @@ namespace BetterSCP079
         public int blackout_timeovercharge { get; set; } = 8;
 
         [Description("SCP079 cooldown time")]
-        public float blackout_cooldown { get; set; } = 120f;
+        public int blackout_cooldown { get; set; } = 120;
 
         [Description("This is a cassie that will play after using the [blackout] ability")]
         public string blackout_cassie { get; set; } = "pitch_0.6 .g4... pitch_0.7 jam_020_2 Emergency . .g6 Light Off";
@@ -42,7 +42,7 @@ namespace BetterSCP079
         public int canceled_energy { get; set; } = 85;
 
         [Description("SCP079 cooldown time")]
-        public float canceled_cooldown { get; set; } = 120f;
+        public int canceled_cooldown { get; set; } = 120;
 
         [Description("This is a cassie that will play after using the [canceled] ability")]
         public string canceled_cassie { get; set; } = "pitch_0.5 .g6.. pitch_0.7 SCP pitch_0.5 0 pitch_0.5 7 pitch_0.5 9 pitch_0.7 jam_030_5 Hack .g4.. Warhead System";
@@ -72,10 +72,10 @@ namespace BetterSCP079
         public string activate_warheadactive { get; set; } = "Alpha warhead already activated";
 
         [Description("SCP079 cooldown time")]
-        public float activate_cooldown { get; set; } = 180f;
+        public int activate_cooldown { get; set; } = 180;
 
         [Description("After activating the ability, block the warhead")]
-        public bool activate_alphalock { get; set; } = true;
+        public bool activate_alphalock { get; set; } = false;
 
         [Description("This is a cassie that will play after using the [activate] ability")]
         public string activate_cassie { get; set; } = "pitch_0.5 .g6.. pitch_0.7 SCP pitch_0.5 0 pitch_0.5 7 pitch_0.5 9 pitch_0.7 jam_030_5 Hack .g4.. Warhead System";
@@ -86,8 +86,8 @@ namespace BetterSCP079
         [Description("This message will be displayed in the console if the ability is disabled")]
         public string scp_abilitydis { get; set; } = "This ability is disabled on this server";
 
-        [Description("This message will be displayed in the console if 079 needs to cool down")]
-        public string scp_cooldownmsg { get; set; } = "You cannot use, you need to cooldown a little";
+        [Description("This message will be displayed in the console if 079 needs to cool down ({cooldown} displays the time until the end of cooldown)")]
+        public string scp_cooldownmsg { get; set; } = "You need to cool down a little before next use, time until next use {cooldown} second(s)";
 
         [Description("Message displayed by SCP079 when spawning")]
         public string scp_startmsg { get; set; } = "<b><color=red>You can open the console [~] and type [ .079 help] and you will have a lot of new possibilities</color></b>";

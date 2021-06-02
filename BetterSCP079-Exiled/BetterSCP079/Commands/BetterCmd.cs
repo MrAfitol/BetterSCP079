@@ -45,7 +45,7 @@ namespace BetterSCP079.Commands
                     {
                         if (Plugin.Instance.handlers.isCooldownLights == true)
                         {
-                            response = Plugin.Instance.Config.scp_cooldownmsg;
+                            response = Plugin.Instance.Config.scp_cooldownmsg.Replace("{cooldown}", Plugin.Instance.handlers.CooldownLights.ToString());
                             return true;
                         }
                         if (Plugin.Instance.Config.blackout_enabled == false)
@@ -88,9 +88,9 @@ namespace BetterSCP079.Commands
                                 response = Plugin.Instance.Config.scp_abilitydis;
                                 return true;
                             }
-                            if (Plugin.Instance.handlers.isCooldownNuckOff == true)
+                            if (Plugin.Instance.handlers.isCooldownNukeOff == true)
                             {
-                                response = Plugin.Instance.Config.scp_cooldownmsg;
+                                response = Plugin.Instance.Config.scp_cooldownmsg.Replace("{cooldown}", Plugin.Instance.handlers.CooldownNukeOff.ToString());
                                 return true;
                             }
                             if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.canceled_lvl)
@@ -156,9 +156,9 @@ namespace BetterSCP079.Commands
                     {
                         if (Warhead.CanBeStarted == true)
                         {
-                            if (Plugin.Instance.handlers.isCooldownNuckOn == true)
+                            if (Plugin.Instance.handlers.isCooldownNukeOn == true)
                             {
-                                response = Plugin.Instance.Config.scp_cooldownmsg;
+                                response = Plugin.Instance.Config.scp_cooldownmsg.Replace("{cooldown}", Plugin.Instance.handlers.CooldownNukeOn.ToString());
                                 return true;
                             }
                             if (Plugin.Instance.Config.activate_enabled == false)
@@ -184,7 +184,7 @@ namespace BetterSCP079.Commands
                             response = Plugin.Instance.Config.com_executed;
                             return true;
                         }
-                        if (Warhead.CanBeStarted == false)
+                        else if (Warhead.CanBeStarted == false)
                         {
                             response = Plugin.Instance.Config.activate_warheadactive;
                             return true;
