@@ -59,6 +59,9 @@ namespace BetterSCP079
         [Description("Set the required energy to activate the ability [flash]")]
         public int flash_energy { get; set; } = 25;
 
+        [Description("SCP079 cooldown time")]
+        public int flash_cooldown { get; set; } = 60;
+
         [Description("Indicates whether to activate the use of the ability or not")]
         public bool activate_enabled { get; set; } = true;
 

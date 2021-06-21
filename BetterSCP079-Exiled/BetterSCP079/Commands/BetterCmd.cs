@@ -1,12 +1,8 @@
 ﻿using CommandSystem;
 using Exiled.API.Features;
-using Grenades;
 using MEC;
-using Mirror;
 using RemoteAdmin;
 using System;
-using System.Linq;
-using UnityEngine;
 
 namespace BetterSCP079.Commands
 {
@@ -120,6 +116,11 @@ namespace BetterSCP079.Commands
 
                     if (args[1].ToLower().Equals("flash"))
                     {
+                        if (Plugin.Instance.handlers.isCooldownFlash == true)
+                        {
+                            response = Plugin.Instance.Config.scp_cooldownmsg.Replace("{cooldown}", Plugin.Instance.handlers.CooldownFlash.ToString());
+                            return true;
+                        }
                         if (Plugin.Instance.Config.flash_enabled == false)
                         {
                             response = Plugin.Instance.Config.scp_abilitydis;
@@ -140,14 +141,8 @@ namespace BetterSCP079.Commands
                             return true;
                         }
 
-                        var pos = plr.ReferenceHub.scp079PlayerScript.currentCamera.transform.position;
-                        GrenadeManager gm = plr.ReferenceHub.GetComponent<GrenadeManager>();
-                        GrenadeSettings settings = gm.availableGrenades.FirstOrDefault(g => g.inventoryID == ItemType.GrenadeFlash);
-                        FlashGrenade flash = GameObject.Instantiate(settings.grenadeInstance).GetComponent<FlashGrenade>();
-                        flash.fuseDuration = 0.5f;
-                        flash.InitData(gm, Vector3.zero, Vector3.zero, 1f);
-                        flash.transform.position = pos;
-                        NetworkServer.Spawn(flash.gameObject);
+                        Timing.RunCoroutine(Plugin.Instance.handlers.Flash(ply), "flash");
+
                         response = Plugin.Instance.Config.com_executed;
                         return true;
                     }

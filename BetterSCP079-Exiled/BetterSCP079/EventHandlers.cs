@@ -1,6 +1,8 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs;
+using Grenades;
 using MEC;
+using Mirror;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,10 +14,12 @@ namespace BetterSCP079
         public int CooldownNukeOff = Plugin.Instance.Config.canceled_cooldown;
         public int CooldownNukeOn = Plugin.Instance.Config.activate_cooldown;
         public int CooldownLights = Plugin.Instance.Config.blackout_cooldown;
+        public int CooldownFlash = Plugin.Instance.Config.flash_cooldown;
 
         public bool isCooldownNukeOff;
         public bool isCooldownNukeOn;
         public bool isCooldownLights;
+        public bool isCooldownFlash;
 
         internal void PlayerSpawn(SpawningEventArgs ev)
         {
@@ -42,6 +46,30 @@ namespace BetterSCP079
             isCooldownNukeOff = false;
             CooldownNukeOff = Plugin.Instance.Config.canceled_cooldown;
         }
+
+        public IEnumerator<float> Flash(Player plr)
+        {
+
+            var pos = plr.ReferenceHub.scp079PlayerScript.currentCamera.transform.position;
+            GrenadeManager gm = plr.ReferenceHub.GetComponent<GrenadeManager>();
+            GrenadeSettings settings = gm.availableGrenades.FirstOrDefault(g => g.inventoryID == ItemType.GrenadeFlash);
+            FlashGrenade flash = GameObject.Instantiate(settings.grenadeInstance).GetComponent<FlashGrenade>();
+            flash.fuseDuration = 0.5f;
+            flash.InitData(gm, Vector3.zero, Vector3.zero, 1f);
+            flash.transform.position = pos;
+            NetworkServer.Spawn(flash.gameObject);
+
+            while (CooldownFlash > 0)
+            {
+                CooldownFlash--;
+                isCooldownFlash = true;
+
+                yield return Timing.WaitForSeconds(1f);
+            }
+
+            isCooldownFlash = false;
+            CooldownFlash = Plugin.Instance.Config.flash_cooldown;
+    }
 
         public IEnumerator<float> NukeOn()
         {

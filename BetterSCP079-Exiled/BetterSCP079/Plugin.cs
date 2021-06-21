@@ -11,7 +11,7 @@ namespace BetterSCP079
         public override string Name => "Better079";
         public override string Prefix => "better079";
         public override string Author => "MrAfitol";
-        public override Version Version => new Version(1, 2, 1);
+        public override Version Version => new Version(1, 2, 2);
 
         public EventHandlers handlers;
 
@@ -28,7 +28,9 @@ namespace BetterSCP079
             try
             {
                 Timing.KillCoroutines("nukeoff");
+                Timing.KillCoroutines("nukeon");
                 Timing.KillCoroutines("light");
+                Timing.KillCoroutines("flash");
             }
             catch { }
 
