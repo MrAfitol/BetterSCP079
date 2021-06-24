@@ -1,7 +1,7 @@
 # BetterSCP079
 This plugin enhances SCP079
 
-**The plugin will definitely be updated, if you find a bug or want to suggest an idea then write to me in discord: `MrAfitol#4751`**
+**The plugin will definitely be updated, if you find a bug or want to suggest an idea then write to me in discord: `MrAfitol#3333`**
 *Original idea: [Click](https://github.com/VirtualBrightPlayz/EXILEDBetter079)*
 ## Commands
 To execute the commands below, at the beginning, you need to write `.079`, you must write to the console [~]
