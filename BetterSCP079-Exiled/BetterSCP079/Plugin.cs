@@ -11,7 +11,8 @@ namespace BetterSCP079
         public override string Name => "Better079";
         public override string Prefix => "better079";
         public override string Author => "MrAfitol";
-        public override Version Version => new Version(1, 2, 2);
+        public override Version Version => new Version(1, 2, 3);
+        public override Version RequiredExiledVersion => new Version(2, 11, 1);
 
         public EventHandlers handlers;
 
@@ -19,7 +20,7 @@ namespace BetterSCP079
         {
             Instance = this;
             handlers = new EventHandlers();
-            Player.Spawning += handlers.PlayerSpawn;
+            Player.ChangingRole += handlers.PlayerSpawn;
         }
 
         public override void OnDisabled()
@@ -34,7 +35,7 @@ namespace BetterSCP079
             }
             catch { }
 
-            Player.Spawning -= handlers.PlayerSpawn;
+            Player.ChangingRole -= handlers.PlayerSpawn;
             handlers = null;
             Instance = null;
         }

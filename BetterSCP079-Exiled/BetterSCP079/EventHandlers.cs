@@ -21,9 +21,9 @@ namespace BetterSCP079
         public bool isCooldownLights;
         public bool isCooldownFlash;
 
-        internal void PlayerSpawn(SpawningEventArgs ev)
+        internal void PlayerSpawn(ChangingRoleEventArgs ev)
         {
-            if (ev.Player.Role == RoleType.Scp079)
+            if (ev.NewRole == RoleType.Scp079)
             {
                 ev.Player.ShowHint(Plugin.Instance.Config.scp_startmsg, Plugin.Instance.Config.scp_timestartmsg);
             }
