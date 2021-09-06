@@ -5,6 +5,7 @@ This plugin enhances SCP079
 *Original idea: [Click](https://github.com/VirtualBrightPlayz/EXILEDBetter079)*
 ## Commands
 To execute the commands below, at the beginning, you need to write `.079`, you must write to the console [~]
+
 Command | Description | Example
 :--------:|:------:|:----------:
 help | List of possible commands | `.079 help`
