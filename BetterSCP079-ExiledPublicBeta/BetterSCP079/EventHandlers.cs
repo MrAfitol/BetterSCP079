@@ -1,6 +1,8 @@
 ﻿using Exiled.API.Features;
+using Exiled.API.Features.Items;
 using Exiled.Events.EventArgs;
-using Grenades;
+using Footprinting;
+using InventorySystem.Items.ThrowableProjectiles;
 using MEC;
 using Mirror;
 using System.Collections.Generic;
@@ -50,14 +52,11 @@ namespace BetterSCP079
         public IEnumerator<float> Flash(Player plr)
         {
 
-            var pos = plr.ReferenceHub.scp079PlayerScript.currentCamera.transform.position;
-            GrenadeManager gm = plr.ReferenceHub.GetComponent<GrenadeManager>();
-            GrenadeSettings settings = gm.availableGrenades.FirstOrDefault(g => g.inventoryID == ItemType.GrenadeFlash);
-            FlashGrenade flash = GameObject.Instantiate(settings.grenadeInstance).GetComponent<FlashGrenade>();
-            flash.fuseDuration = 0.5f;
-            flash.InitData(gm, Vector3.zero, Vector3.zero, 1f);
-            flash.transform.position = pos;
-            NetworkServer.Spawn(flash.gameObject);
+            Throwable throwable = new Throwable(ItemType.GrenadeFlash);
+            ThrownProjectile projectile = UnityEngine.Object.Instantiate(throwable.Base.Projectile, plr.Position, default);
+            projectile.PreviousOwner = new Footprint(plr.ReferenceHub);
+            NetworkServer.Spawn(projectile.gameObject);
+            projectile.ServerActivate();
 
             while (CooldownFlash > 0)
             {
@@ -98,13 +97,13 @@ namespace BetterSCP079
             {
                 if (Plugin.Instance.Config.blackout_lvlup == true)
                 {
-                    if (Plugin.Instance.Config.blackout_lvl < D.ReferenceHub.scp079PlayerScript.NetworkcurLvl)
+                    if (Plugin.Instance.Config.blackout_lvl < D.ReferenceHub.scp079PlayerScript.Network_curLvl)
                     {
                         Plugin.Instance.Config.blackout_timeovercharge += Plugin.Instance.Config.blackout_timeinc;
                     }
                 }
             }
-            Generator079.Generators[0].ServerOvercharge(Plugin.Instance.Config.blackout_timeovercharge, false);
+            Map.TurnOffAllLights(Plugin.Instance.Config.blackout_timeovercharge);
             Cassie.Message(Plugin.Instance.Config.blackout_cassie, true, true);
 
             while (CooldownLights > 0)

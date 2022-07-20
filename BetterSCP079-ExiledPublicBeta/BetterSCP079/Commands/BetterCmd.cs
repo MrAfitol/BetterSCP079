@@ -49,14 +49,14 @@ namespace BetterSCP079.Commands
                             response = Plugin.Instance.Config.scp_abilitydis;
                             return true;
                         }
-                        if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.blackout_lvl)
+                        if (plr.ReferenceHub.scp079PlayerScript.Network_curLvl < Plugin.Instance.Config.blackout_lvl)
                         {
                             response = Plugin.Instance.Config.scp_insuflvl;
                             return true;
                         }
-                        if (ply.ReferenceHub.scp079PlayerScript.NetworkcurMana >= Plugin.Instance.Config.blackout_energy)
+                        if (ply.ReferenceHub.scp079PlayerScript.Network_curMana >= Plugin.Instance.Config.blackout_energy)
                         {
-                            ply.ReferenceHub.scp079PlayerScript.NetworkcurMana -= Plugin.Instance.Config.blackout_energy;
+                            ply.ReferenceHub.scp079PlayerScript.Network_curMana -= Plugin.Instance.Config.blackout_energy;
                         }
                         else
                         {
@@ -89,14 +89,14 @@ namespace BetterSCP079.Commands
                                 response = Plugin.Instance.Config.scp_cooldownmsg.Replace("{cooldown}", Plugin.Instance.handlers.CooldownNukeOff.ToString());
                                 return true;
                             }
-                            if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.canceled_lvl)
+                            if (plr.ReferenceHub.scp079PlayerScript.Network_curLvl < Plugin.Instance.Config.canceled_lvl)
                             {
                                 response = Plugin.Instance.Config.scp_insuflvl;
                                 return true;
                             }
-                            if (ply.ReferenceHub.scp079PlayerScript.NetworkcurMana >= Plugin.Instance.Config.canceled_energy)
+                            if (ply.ReferenceHub.scp079PlayerScript.Network_curMana >= Plugin.Instance.Config.canceled_energy)
                             {
-                                ply.ReferenceHub.scp079PlayerScript.NetworkcurMana -= Plugin.Instance.Config.canceled_energy;
+                                ply.ReferenceHub.scp079PlayerScript.Network_curMana -= Plugin.Instance.Config.canceled_energy;
                             }
                             else
                             {
@@ -126,14 +126,14 @@ namespace BetterSCP079.Commands
                             response = Plugin.Instance.Config.scp_abilitydis;
                             return true;
                         }
-                        if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.flash_lvl)
+                        if (plr.ReferenceHub.scp079PlayerScript.Network_curLvl < Plugin.Instance.Config.flash_lvl)
                         {
                             response = Plugin.Instance.Config.scp_insuflvl;
                             return true;
                         }
-                        if (ply.ReferenceHub.scp079PlayerScript.NetworkcurMana >= Plugin.Instance.Config.flash_energy)
+                        if (ply.ReferenceHub.scp079PlayerScript.Network_curMana >= Plugin.Instance.Config.flash_energy)
                         {
-                            ply.ReferenceHub.scp079PlayerScript.NetworkcurMana -= Plugin.Instance.Config.flash_energy;
+                            ply.ReferenceHub.scp079PlayerScript.Network_curMana -= Plugin.Instance.Config.flash_energy;
                         }
                         else
                         {
@@ -161,14 +161,14 @@ namespace BetterSCP079.Commands
                                 response = Plugin.Instance.Config.scp_abilitydis;
                                 return true;
                             }
-                            if (plr.ReferenceHub.scp079PlayerScript.NetworkcurLvl < Plugin.Instance.Config.activate_lvl)
+                            if (plr.ReferenceHub.scp079PlayerScript.Network_curLvl < Plugin.Instance.Config.activate_lvl)
                             {
                                 response = Plugin.Instance.Config.scp_insuflvl;
                                 return true;
                             }
-                            if (ply.ReferenceHub.scp079PlayerScript.NetworkcurMana >= Plugin.Instance.Config.activate_energy)
+                            if (ply.ReferenceHub.scp079PlayerScript.Network_curMana >= Plugin.Instance.Config.activate_energy)
                             {
-                                ply.ReferenceHub.scp079PlayerScript.NetworkcurMana -= Plugin.Instance.Config.activate_energy;
+                                ply.ReferenceHub.scp079PlayerScript.Network_curMana -= Plugin.Instance.Config.activate_energy;
                             }
                             else
                             {

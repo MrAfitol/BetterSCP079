@@ -8,11 +8,11 @@ namespace BetterSCP079
     public class Plugin : Plugin<Config>
     {
         public static Plugin Instance;
-        public override string Name => "Better079";
-        public override string Prefix => "better079";
+        public override string Name => "Better079PublicBeta";
+        public override string Prefix => "better079_publicbeta";
         public override string Author => "MrAfitol";
-        public override Version Version => new Version(1, 2, 3);
-        public override Version RequiredExiledVersion => new Version(2, 11, 1);
+        public override Version Version => new Version(2, 0, 0);
+        public override Version RequiredExiledVersion => new Version(3, 0, 0);
 
         public EventHandlers handlers;
 
